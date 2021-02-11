@@ -21,3 +21,60 @@ c(1, 2, 3, 4) + c(0, 10, 100)
 z * 2 + 1000
 my_div
 swirl()
+trueMean1 &lt;- 5#
+trueSD1 &lt;- 5#
+population1 &lt;- rnorm(1e6, trueMean1, trueSD1)#
+trueMean2 &lt;- 4#
+trueSD2 &lt;- 5#
+population2 &lt;- rnorm(1e6, trueMean2, trueSD2)#
+Size &lt;-50#
+Sample1 &lt;- sample(population1 , Size)#
+Sample2 &lt;- sample(population2 , Size)#
+boxplot(Sample1, Sample2)#
+source(&quot;http://jonsmitchell.com/code/simFxn04.R&quot;)#
+MatGrandma &lt;- makeFounder(&quot;grandma_mom&quot;)#
+MatGrandpa &lt;- makeFounder(&quot;grandpa_mom&quot;)#
+PatGrandma &lt;- makeFounder(&quot;grandma_da&quot;)#
+PatGrandpa &lt;- makeFounder(&quot;grandpa_da&quot;)#
+Alan &lt;- makeBaby(PatGrandma, PatGrandpa)#
+Brenda &lt;- makeBaby(MatGrandma, MatGrandpa)#
+Focus &lt;- makeBaby(Brenda, Alan)#
+ToMom &lt;- length( grep(&quot;mom&quot;, Focus))/ length(Focus)#
+ToMomMom&lt;- length( grep( &quot;grandma_mom&quot;, Focus))/ length(Focus)#
+ToMomDad &lt;- length( grep( &quot;granpa_mom&quot;, Focus))/ length(Focus)#
+Sibling_01&lt;-makeBaby(Brenda, Alan)#
+ToSib &lt;- length(intersect( Focus, Sibling_01))/ length(Focus)#
+ManySiblings &lt;- replicate( 1e3, length( intersect( Focus, makeBaby(Brenda, Alan)))/length(#
+Focus))#
+quantile(ManySiblings)#
+mean(ManySiblings)#
+plot(density(ManySiblings), main=&quot;&quot;, xlab=&quot;proportion shared genes&quot;)#
+HWE &lt;- function(p) {#
+aa&lt;-p^2#
+ab&lt;-2*p*(1-p)#
+bb&lt;-(1-p)^2#
+return(c(aa=aa, ab=ab, bb=bb))#
+}#
+HWE(0.5)#
+plot(1, 1, type=&quot;n&quot;, xlim=c(0,1), xlab=&quot;freq. allele a&quot;, ylab=&quot;geno. freq&quot;)#
+p&lt;- seq(from = 0, to = 1, by = 0.01)#
+GenoFreq&lt;- t(sapply(p, HWE))#
+lines(p, GenoFreq[,&quot;aa&quot;], lwd=2, col=&quot;red&quot;)#
+lines(p, GenoFreq[,&quot;ab&quot;], lwd=2, col=&quot;purple&quot;)#
+lines(p, GenoFreq[,&quot;bb&quot;], lwd=2, col=&quot;blue&quot;)#
+legend(&quot;top&quot;, legend=c(&quot;aa&quot;,&quot;ab&quot;,&quot;bb&quot;), col=c(&quot;red&quot;,&quot;purple&quot;,&quot;blue&quot;), lty=1, lwd=2, bty=&quot;n&quot;)#
+Pop&lt;- simPop(500)#
+points(Pop[,&quot;freqa&quot;], Pop[,&quot;Genotypes.aa&quot;]/500, pch=21, bg=&quot;red&quot;)#
+Pop&lt;-simPop(50)#
+points(Pop[,&quot;freqa&quot;], Pop[,&quot;Genotypes.aa&quot;]/50, pch=22, bg=&quot;red&quot;)#
+install.packages(&quot;learnPopGen&quot;)#
+library(learnPopGen)#
+x&lt;-genetic.drift(Ne=200, nrep=5, pause=0.01)#
+PopSizes&lt;-5:50#
+Samples&lt;- rep(PopSizes, 5)#
+tExt&lt;- sapply(Samples, function(x) nrow(simPop(x, 500)))#
+Line&lt;- lm(tExt ~ Samples)#
+summary(Line)#
+Line$coef#
+plot(Samples, tExt)#
+abline(Line)

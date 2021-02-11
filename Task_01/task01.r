@@ -48,9 +48,9 @@ par(las=1, mar=c(5 ,5 ,1 ,1) , mgp=c(2, 0.5, 0), tck=-0.01)
 plot(as.numeric(names(totalFeed)) , totalFeed, type="b", pch=16, xlab="age in days", ylab=" ounces of milk")
 abline(h=mean(totalFeed), lty=2, col='red')
 dev.off()
-Question 1: There's not enough data to be able to correlate with the variables.
-Question 2: The graph is very difficult to interpret because a lot of the data is compiled together due to the fact that there was high intervals on the x-axis.
-Self-Quiz: hypothesis= The amount of tylenol Beren takes increases with the amount of molars he gets.
+# Question 1: There's not enough data to be able to correlate with the variables.
+# Question 2: The graph is very difficult to interpret because a lot of the data is compiled together due to the fact that there was high intervals on the x-axis.
+# Self-Quiz: hypothesis= The amount of tylenol Beren takes increases with the amount of molars he gets.
 source("http://jonsmitchell.com/code/plotFxn02b.R")
 unique(beren3$event)
 extra credit
@@ -70,4 +70,27 @@ totalNap
 par(las=1, mar=c(5, 5, 1,1), mgp=c(2, 0.5, 0), tck=-0.1)
 plot(as.numeric(names(totalNap)), totalNap, type="b", pch=16, xlab="age in days", ylab="Naptime in minutes ")
 cor.test(beren4$start_hour, beren4$sleepTime)
-There is a negative correlation between the two. 
+# There is a negative correlation between the two. 
+Tyl <- which(beren3$event == "tylenol")
+tylData <- beren3[Tyl,]
+head( tylData )
+totalFeed
+unique(tylData$age)
+head(tylData)
+unique(tylData$age)
+DoseDays <- unique(tylData$age)
+totalFeed
+totalFeed[as.character(DoseDays)]
+DoseDays
+as.character(DoseDays)
+doseFeedNA <- as.character(DoseDays)
+na.omit(as.data.frame(x))
+doseFeeds <- na.omit(as.data.frame(doseFeedNA))[,1]
+NoTyl <- setdiff(names(totalFeed), as.character(DoseDays))
+NoTyl
+nodoseFeeds <- totalFeed [NoTyl]
+nodoseFeeds
+doseFeeds
+nodoseFeeds
+boxplot(doseFeeds, nodoseFeeds)
+t.test(doseFeeds, nodoseFeeds)
