@@ -1,221 +1,248 @@
-library (swirl)
-swirl()
-5 + 7
-x <- 5 + 7
-x
-y <- x - 3
-y
-z <- c(1.1, 9, 3.14)
-?c
-z
-z, 555, z
-(z, 555, z)
-c(z, 555, z)
-z * 2 + 100
-my_sqrt <- sqrt(z - 1)
-skip()
-my_div <- z / my_sqrt
-skip()
-c(1, 2, 3, 4) + c(0, 10)
-c(1, 2, 3, 4) + c(0, 10, 100)
-z * 2 + 1000
-my_div
-swirl()
-trueMean1 &lt;- 5#
-trueSD1 &lt;- 5#
-population1 &lt;- rnorm(1e6, trueMean1, trueSD1)#
-trueMean2 &lt;- 4#
-trueSD2 &lt;- 5#
-population2 &lt;- rnorm(1e6, trueMean2, trueSD2)#
-Size &lt;-50#
-Sample1 &lt;- sample(population1 , Size)#
-Sample2 &lt;- sample(population2 , Size)#
-boxplot(Sample1, Sample2)#
-source(&quot;http://jonsmitchell.com/code/simFxn04.R&quot;)#
-MatGrandma &lt;- makeFounder(&quot;grandma_mom&quot;)#
-MatGrandpa &lt;- makeFounder(&quot;grandpa_mom&quot;)#
-PatGrandma &lt;- makeFounder(&quot;grandma_da&quot;)#
-PatGrandpa &lt;- makeFounder(&quot;grandpa_da&quot;)#
-Alan &lt;- makeBaby(PatGrandma, PatGrandpa)#
-Brenda &lt;- makeBaby(MatGrandma, MatGrandpa)#
-Focus &lt;- makeBaby(Brenda, Alan)#
-ToMom &lt;- length( grep(&quot;mom&quot;, Focus))/ length(Focus)#
-ToMomMom&lt;- length( grep( &quot;grandma_mom&quot;, Focus))/ length(Focus)#
-ToMomDad &lt;- length( grep( &quot;granpa_mom&quot;, Focus))/ length(Focus)#
-Sibling_01&lt;-makeBaby(Brenda, Alan)#
-ToSib &lt;- length(intersect( Focus, Sibling_01))/ length(Focus)#
-ManySiblings &lt;- replicate( 1e3, length( intersect( Focus, makeBaby(Brenda, Alan)))/length(#
-Focus))#
-quantile(ManySiblings)#
-mean(ManySiblings)#
-plot(density(ManySiblings), main=&quot;&quot;, xlab=&quot;proportion shared genes&quot;)#
-HWE &lt;- function(p) {#
-aa&lt;-p^2#
-ab&lt;-2*p*(1-p)#
-bb&lt;-(1-p)^2#
-return(c(aa=aa, ab=ab, bb=bb))#
-}#
-HWE(0.5)#
-plot(1, 1, type=&quot;n&quot;, xlim=c(0,1), xlab=&quot;freq. allele a&quot;, ylab=&quot;geno. freq&quot;)#
-p&lt;- seq(from = 0, to = 1, by = 0.01)#
-GenoFreq&lt;- t(sapply(p, HWE))#
-lines(p, GenoFreq[,&quot;aa&quot;], lwd=2, col=&quot;red&quot;)#
-lines(p, GenoFreq[,&quot;ab&quot;], lwd=2, col=&quot;purple&quot;)#
-lines(p, GenoFreq[,&quot;bb&quot;], lwd=2, col=&quot;blue&quot;)#
-legend(&quot;top&quot;, legend=c(&quot;aa&quot;,&quot;ab&quot;,&quot;bb&quot;), col=c(&quot;red&quot;,&quot;purple&quot;,&quot;blue&quot;), lty=1, lwd=2, bty=&quot;n&quot;)#
-Pop&lt;- simPop(500)#
-points(Pop[,&quot;freqa&quot;], Pop[,&quot;Genotypes.aa&quot;]/500, pch=21, bg=&quot;red&quot;)#
-Pop&lt;-simPop(50)#
-points(Pop[,&quot;freqa&quot;], Pop[,&quot;Genotypes.aa&quot;]/50, pch=22, bg=&quot;red&quot;)#
-install.packages(&quot;learnPopGen&quot;)#
-library(learnPopGen)#
-x&lt;-genetic.drift(Ne=200, nrep=5, pause=0.01)#
-PopSizes&lt;-5:50#
-Samples&lt;- rep(PopSizes, 5)#
-tExt&lt;- sapply(Samples, function(x) nrow(simPop(x, 500)))#
-Line&lt;- lm(tExt ~ Samples)#
-summary(Line)#
-Line$coef#
-plot(Samples, tExt)#
-abline(Line)
-trueMean1 <- 5
-trueSD1 <- 5
-population1 <- rnorm(1e6, trueMean1, trueSD1)
-trueMean2 <- 4
-trueSD2 <- 5
-population2 <- rnorm(1e6, trueMean2, trueSD2)
-Size <-50
-Sample1 <- sample(population1 , Size)
-Sample2 <- sample(population2 , Size)
-boxplot(Sample1, Sample2)
-source("http://jonsmitchell.com/code/simFxn04.R")
-MatGrandma <- makeFounder("grandma_mom")
-MatGrandpa <- makeFounder("grandpa_mom")
-PatGrandma <- makeFounder("grandma_da")
-PatGrandpa <- makeFounder("grandpa_da")
-Alan <- makeBaby(PatGrandma, PatGrandpa)
-Brenda <- makeBaby(MatGrandma, MatGrandpa)
-Focus <- makeBaby(Brenda, Alan)
-ToMom <- length( grep("mom", Focus))/ length(Focus)
-ToMomMom <- length( grep( "grandma_mom", Focus))/ length(Focus)
-ToMomDad <- length( grep( "granpa_mom", Focus))/ length(Focus)
-Sibling_01 <-makeBaby(Brenda, Alan)
-ToSib <- length(intersect( Focus, Sibling_01))/ length(Focus)
-ManySiblings <- replicate( 1e3, length( intersect( Focus, makeBaby(Brenda, Alan)))/length(Focus))
-quantile(ManySiblings)
-mean(ManySiblings)
-plot(density(ManySiblings), main="", xlab="proportion shared genes")
-HWE <- function(p) {
-aa <-p^2
-ab <-2*p*(1-p)
-bb <-(1-p)^2
-return(c(aa=aa, ab=ab, bb=bb))
+source("http://jonsmitchell.com/code/fxn05.R")
+Pop1<- simPop(Popsize = 50, nGenerations = 100, initial_p = 0.5, h =1, s = 0)
+plot (1:nrow (Pop1), Pop1 [,1], ylim=c (0,1), type = "l", xlab="generation", ylab="allele freq.", lwd=2)
+lines(1:nrow(Pop1), Pop1[,2], lwd=2, col='red')
+legend("topleft", legend = c("a", "b"), col = c("black", "red"), lwd = 2, bty="n")
+plotFit( nruns = 10, n = 50, ngens = 100, init_p=0.5, h = 1, s = 0 )
+Expectation <- c(10, 10, 10, 10)
+Observed <- c(15, 15, 5, 5)
+Chisq <- sum(((Expectation-Observed)^2)/Expectation)
+barplot(rbind(Expectation, Observed), beeside=T, main=bquote(chi^2 ~ "=" ~.(Chisq)), legend.text=c("expected", "observed"))
+barplot(rbind(Expectation, Observed), beside=T, main=bquote(chi^2 ~ "=" ~.(Chisq)), legend.text=c("expected", "observed"))
+results<- read.csv("http://jonsmitchell.com/data/biol112labresults.csv", stringsAsFactors=F)
+counts<- results[,c("yellow","red","green","blue","black","tan")]
+backgrounds <- c("White" ,"Red" ,"Yellow" ,"Green" ,"Blue" ,"Black")
+backgroundCol <- c ("white", "#d53e4f", "#fee08b", "#abdda4", "#3288bd", "black")
+calcChi(counts[1,])
+Chisqs <- apply(counts, 1, calcChi)
+plotChis(counts)
+Avg <- mean(Chisqs)
+backgroundAvgs <- tapply(Chisqs, results[,3], mean)
+propSig <- length( which( Chisqs > 11.70))/length(Chisqs)
+percSig <- round(100 * propSig)
+par(las = 1, mar = c(4, 4, 1, 1), mgp = c(2, 0.5, 0), tck = -0.01, cex.axis=1)
+hist(Chisqs, main="", xlab="chi-squared values", ylab="frequency")
+par(las=1, mar=c(4, 4, 1, 1), mgp=c(2, 0.5, 0), tck = -0.01, cex.axis=1)
+plot(1, 1, xlim=c(0, 400), ylim=c(1, 8.5), xlab="", ylab="", type="n", yaxt="n")
+axis(2, at = 1:length(backgrounds), labels = backgrounds)
+mtext(side=1, expression(chi^2), cex=1.75, line=2.5)
+counter <- 1
+for (i in backgrounds){
+Data <- Chisqs[which(results[,3] == i)]
+addHist(Y=counter, Dat=Data, Color=backgroundCol[counter])
+counter <- counter +1
 }
-HWE(0.5)
-plot(1, 1, type"n", xlim=c(0,1), xlab"freq. allele a", ylab="geno. freq")
-p <- seq(from = 0, to = 1, by = 0.01)
-GenoFreq <- t(sapply(p, HWE))
-lines(p, GenoFreq[,"aa"], lwd=2, col="red")
-plot(1, 1, type"n", xlim=c(0,1), xlab="freq. allele a", ylab="geno. freq")
-plot(1, 1, type "1", xlim=c(0,1), xlab="freq. allele a", ylab="geno. freq")
-plot(1, 1, type "1", xlim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
-plot(1, 1, type"1", xlim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
-plot(1, 1,type"1", xlim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
-plot ( 1 , 1 , type=”n” , xlim=c ( 0 , 1 ) , ylim=c ( 0 , 1 ) , xl ab=” f r e q . a l l e l e a ” , 133 yl ab=” geno . f r e q ” )
-plot (1,1, type="n", xlim=c(0,1), ylim=c(0,1), xlab="freq.allele a", ylab="geno. freq")
-GenoFreq <- t(sapply(p, HWE))
-lines(p, GenoFreq[,"aa"], lwd=2, col="red")
-lines(p, GenoFreq[,"ab"], lwd=2, col="purple")
-lines(p, GenoFreq[,"bb"], lwd=2, col="blue")
-legend("top",legend=c("aa","ab","bb"),col=c("red","purple","blue"), lty=1, lwd=2, bty="n")
-Pop <- simPop(500)
-points(Pop[,"freqa"], Pop["Genotypes.aa"]/500, pch=21, bg="red")
-points(Pop[,"freqa"], Pop[, "Genotypes.aa"]/500, pch=21, bg="red")
-Pop <-simPop(50)
-points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/50, pch=22, bg="red")
+abline( v = 11.70, lty=2, lwd=2, col='black')
+#no
+Simulation <- simDraws(10000)
+addHist(Y=7, Dat=Simulation, Color="lightgray")
+mtext(side=2, at=7, line=0, "simulated")
+abline(v=11.70, lty=2, lwd=2)
+Fit<- c(1, 1, 1, 1, 1, 1)
+names(Fit)<- 1:6
+Simulation2<- simDraws(1e4, w=Fit)
+addHist(Y=8, Dat=Simulation2, Color=rgb(0,0,0,0.25))
+Fit <- c(0.1, 1, 1, 1, 1, 1)
+names(Fit)<- 1:6
+Simulation3 <- simDraws(1e4, w=Fit)
+addHist(Y=8, Dat=Simulation3, Color=rgb(0,0,0,0.25))
+Fit <- c(0.5, 0.6, 0.7, 1, 1, 1)
+names(Fit)<- 1:6
+Simulation4 <- simDraws(1e4, w=Fit)
+addHist(Y=8, Dat=Simulation4, Color=rgb(0,0,0,0.25))
+Fit <- c(0.1, 0.2, 0.3, 0.4, 0.5, 1)
+names(Fit) <- 1:6
+Simulation5 <- simDraws(1e4, w=Fit)
+addHist(Y=8, Dat=Simulation5, Color=rgb(0,0,0,0.25))
+Fit<- c(0.1, 0.1, 0.1, 0.1, 0.1, 1)
+names(Fit)<- 1:6
+Simulation6<- simDraws(1e4, w=Fit)
+addHist(Y=8, Dat=Simulation6, Color=rgb(0,0,0,0.25))
+mtext(side=2, at=8, line=0, "sel.sim")
+Simulation7 <- c(Simulation2, Simulation3, Simulation4, Simulation5, Simulation6)
+addHist(Y=8, Dat=Simulation7, Color=rgb(0,0,1,0.25))
+#questions:
+#x^2=10
+#x^2=85
+#the bars are not even when it is high
+#the bars are pretty even when it is low
+#pretty similar in my opinion
+#chi-squared differs by the background
+#yes it could be the reasoning
+#no
+install.packages(&quot;learnPopGen&quot;)
 install.packages("learnPopGen")
-library(learnPopGen)
-x <-genetic.drift(Ne=200, nrep=5, pause=0.01)
-PopSizes <-5:50
-Samples <- rep(PopSizes, 5)
-tExt <- sapply(Samples, function(x) nrow(simPop(x, 500)))
-Line <- lm(tExt ~ Samples)
-Line <- lm(tExt ~ Samples)
-Line <- lm(tExt ~ Samples)
-summary(Line)
-Line$coef
-plot(Samples, tExt)
-abline(Line)
-questions: 1.)I do not think that they're that different
-2.) 0.5 no it doesn't match what I thought.
-3.) 0.06655
-4.) 0.43345
-#5.) The numbers are not equally related
-#6.) The hraph shows inc in geno freq aa inc, ab inc reaches a peak in middle then dec, bb dec
-#7.)no it doesn't match bc the graph most are aa and not ab
-#8.) not as high of an inc as the other graph . The highest point is the same.
-trueMean1 <- 5#
-trueSD1 <- 5#
-population1 <- rnorm(1e6, trueMean1, trueSD1)#
-trueMean2 <- 4#
-trueSD2 <- 5#
-population2 <- rnorm(1e6, trueMean2, trueSD2)#
-Size <-50#
-Sample1 <- sample(population1 , Size)#
-Sample2 <- sample(population2 , Size)#
-boxplot(Sample1, Sample2)#
-source("http://jonsmitchell.com/code/simFxn04.R")#
-MatGrandma <- makeFounder("grandma_mom")#
-MatGrandpa <- makeFounder("grandpa_mom")#
-PatGrandma <- makeFounder("grandma_da")#
-PatGrandpa <- makeFounder("grandpa_da")#
-Alan <- makeBaby(PatGrandma, PatGrandpa)#
-Brenda <- makeBaby(MatGrandma, MatGrandpa)#
-Focus <- makeBaby(Brenda, Alan)#
-ToMom <- length( grep("mom", Focus))/ length(Focus)#
-ToMomMom <- length( grep( "grandma_mom", Focus))/ length(Focus)#
-ToMomDad <- length( grep( "granpa_mom", Focus))/ length(Focus)#
-Sibling_01 <-makeBaby(Brenda, Alan)#
-ToSib <- length(intersect( Focus, Sibling_01))/ length(Focus)#
-ManySiblings <- replicate( 1e3, length( intersect( Focus, makeBaby(Brenda, Alan)))/length(Focus))#
-quantile(ManySiblings)#
-mean(ManySiblings)#
-plot(density(ManySiblings), main="", xlab="proportion shared genes")#
-HWE <- function(p) {#
-aa <-p^2#
-ab <-2*p*(1-p)#
-bb <-(1-p)^2#
-return(c(aa=aa, ab=ab, bb=bb))#
-}#
-HWE(0.5)#
-plot (1,1, type="n", xlim=c(0,1), ylim=c(0,1), xlab="freq.allele a", ylab="geno. freq")#
-GenoFreq <- t(sapply(p, HWE))#
-lines(p, GenoFreq[,"aa"], lwd=2, col="red")#
-lines(p, GenoFreq[,"ab"], lwd=2, col="purple")#
-lines(p, GenoFreq[,"bb"], lwd=2, col="blue")#
-legend("top",legend=c("aa","ab","bb"),col=c("red","purple","blue"), lty=1, lwd=2, bty="n")#
-Pop <- simPop(500)#
-points(Pop[,"freqa"], Pop[, "Genotypes.aa"]/500, pch=21, bg="red")#
-Pop <-simPop(50)#
-points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/50, pch=22, bg="red")#
-install.packages("learnPopGen")#
-library(learnPopGen)#
-x <-genetic.drift(Ne=200, nrep=5, pause=0.01)#
-PopSizes <-5:50#
-Samples <- rep(PopSizes, 5)#
-#
-tExt <- sapply(Samples, function(x) nrow(simPop(x, 500)))#
-Line <- lm(tExt ~ Samples)#
-summary(Line)#
-Line$coef#
-plot(Samples, tExt)#
-abline(Line)#
-#
-#questions: 1.)I do not think that they're that different#
-#2.) 0.5 no it doesn't match what I thought.#
-#3.) 0.06655#
-#4.) 0.43345#
-#5.) The numbers are not equally related #
-#6.) The hraph shows inc in geno freq aa inc, ab inc reaches a peak in middle then dec, bb dec#
-#7.)no it doesn't match bc the graph most are aa and not ab#
-#8.) not as high of an inc as the other graph . The highest point is the same.
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model&lt;- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees &lt;- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy &lt;- read.tree(text=stats$trees[[locus]][n])
+}
+else {
+outPhy <- ape:::c.phylo(outPhy,
+read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+par (mfrow=c(1, 1))
+densityTree(outPhy)
+install.packages("learnPopGen";)
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+ntrees &lt;- length(stats$trees[[locus]])
+ntrees <- length(stats$trees[[locus]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2<- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees <- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy <- read.tree(text=stats$trees[[locus]][n])
+}
+else {
+outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+model3 <- coal_model(10, 50) +
+feat_mutation(par_prior("theta", sample.int(100, 1))) +
+sumstat_nucleotide_div()
+stats <- simulate(model3, nsim = 40)
+mean_pi <- sapply(stats, function(x) mean(x$pi))
+theta<- sapply(stats, function(x) x$pars [["theta"]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+axisPhylo ()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+t1 <- read.tree(text=stats$trees[[1]][1])
+t1<- read.tree(text=stats$trees [[1]][1])
