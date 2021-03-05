@@ -97,7 +97,15 @@ coalescent.plot(n=5, ngen=49, col.order="alternating")
 coalescent.plot(n=5, ngen=5, col.order="alternating")
 #question 4: it has a large impact because each simulation was different each time 
 #question 5: I think it is alive in generation 0
-~/Desktop/e1.pdf
-~/Desktop/e2.pdf
-~/Desktop/e3.pdf
+#~/Desktop/e1.pdf
+#~/Desktop/e2.pdf
+#~/Desktop/e3.pdf
+#~/Desktop/e4.pdf
+#~/Desktop/e5.pdf
 
+
+
+
+
+mydata <- read.csv ("Evolutionproject.csv")
+# My hypothesis is that the telomere length will be shorter in tawny owls that are infected with the Leucocytozoon parasites. 
