@@ -106,6 +106,14 @@ coalescent.plot(n=5, ngen=5, col.order="alternating")
 
 
 
-
-mydata <- read.csv ("Evolutionproject.csv")
+setwd("~/Desktop/Evolution/Tasks/Projects")
+mydata <- read.csv ("karell_data.csv")
 # My hypothesis is that the telomere length will be shorter in tawny owls that are infected with the Leucocytozoon parasites. 
+ x <- read.table("~/Downloads/Karell_et_al_Data_TL_and_parasite.txt", sep="\t")
+head(x)
+ x <- read.table("~/Downloads/Karell_et_al_Data_TL_and_parasite.txt", sep="\t")
+ y <- x[-1,]
+ colnames(y) <- x[1,]
+ getwd()
+setwd("/Users/tylerostling/Desktop/Evolution/Tasks")
+ write.csv(y, "karell_data.csv")
