@@ -133,3 +133,53 @@ addFit(nruns = 50, n= 100, ngens = 18, startT = 1997, simCol = "gray40", rescale
 plot(alleleFreqs$d_freq, alleleFreqs$d_imm, xlim=c(-0.15, 0.15), xlab="overall freq. change", ylab="freq. change in subset")
 points(alleleFreqs$d_freq, alleleFreqs$d_birth, col='blue')
 points(alleleFreqs$d_freq, alleleFreqs$d_surv, col='red')
+
+
+
+
+setwd("~/Desktop/Evolution/Tasks/task_07")
+install.packages("phytools")
+library("phytools")
+library("ape")
+text.string<-
+"(((((((cow, pig) , whale) , (bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) , shark) ;"
+vert.tree<-read.tree(text=text.string)
+plot(vert.tree , edge.width=2)
+nodelabels(frame="circle", bg='white', cex=1)
+#Question 1: Shark
+vert.tree
+#question 2: no there are not any branch lengths 
+str(vert.tree)
+tree<-read.tree(text=" (((A, B) , (C, D)), E) ;")
+plotTree(tree, offset=1)
+tiplabels(frame="circle", bg='lightblue', cex=1)
+nodelabels(frame="circle", bg='white' , cex=1)
+tree$tip.label
+tree$edge
+AnolisTree<-force.ultrametric(read.tree ("https://jonsmitchell.com/data/anolis.tre"))
+par(las=1)
+hist(AnolisTree$edge.length, col='black', border='white', main="", xlab="edge lengths for the Anolis tree", ylim=c(0, 50), xlim=c(0, 6))
+tipEdges<- which(AnolisTree$edge[ , 2] <= Ntip(AnolisTree))
+Lengths <- AnolisTree$edge.length
+names(Lengths) <- AnolisTree$tip.label
+names(Lengths) [which(Lengths==min (Lengths))]
+plot(AnolisTree, cex=0.25)
+Labs<-sapply(AnolisTree$edge.length, round, digits=2)
+edgelabels(text=Labs, cex=0.25)
+?plot.phylo
+plotTree(AnolisTree, offset=1, show.tip.label=FALSE)
+#circular_tree(AnolisTree)
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")
+#6,7,8 
+AnolisTree$edge
+EdgesThatAreTips <-which(AnolisTree$edge[, 2] <= Ntip(AnolisTree))
+TipLengths <- AnolisTree$edge.length[EdgesThatAreTips]
+AnolisTree$edge.length
+AnolisShortestTips <-which(TipLengths == min (TipLengths))
+Anolistree_no_short <- drop.tip(tree, AnolisShortestTips[1])
+plot(Anolistree_no_short)
+ltt(AnolisTree)
+abline(0, 1, lwd=2, col='red', lty=2)
+
+
+
