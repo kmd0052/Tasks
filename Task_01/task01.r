@@ -137,11 +137,64 @@ points(alleleFreqs$d_freq, alleleFreqs$d_surv, col='red')
 
 
 
-setwd("~/Desktop/Evolution/Tasks/task_07")
+setwd("~/Desktop/Evolution/Tasks/task_08")
 install.packages("phytools")
 library("phytools")
-library("ape")
+ tree <-read.tree("https://jonsmitchell.com/data/anolis.tre")
+ plot(tree, type="fan")
+data <- read.csv("https://jonsmitchell.com/data/svl.csv", stringsAsFactors=F, row.names=1)
+dim(data)
+class(data)
+ svl <- setNames(data$svl, rownames(data))
+svl
+Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)
+ par(mar=c(0.1,0.1,0.1,0.1))
+
+
+
+
+ plot(tree, type="fan", lwd=2, show.tip.label=F)
+ tiplabels(pch=16, cex=0.25*svl[tree$tip.label])
+ # it adds the ancestral states 
+ nodelabels(pch=16, cex=0.25*Ancestors$ace)
+ obj <- contMap(tree, svl, plot=F)
+plot (obj, type="fan", legend= 0.7*max(nodeHeights(tree)), sig=2, fsize=c(0.7, 0.9))
+ fossilData <- data.frame(svl=log(c(25.4, 23.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))
+fossilNodes <-c()
+ nodeN <-c()
+{
+for(i in1:nrow(fossilData))
+i<- 1 if (i== 1) {
+print(Ancestors)   }
+}
+plot(tree, cex=0.5)
+ for (i in 1:nrow(fossilData))	{
+ 	Node <- fastMRCA(tree, fossilData [i,"tip1"], fossilData[i,"tip2"])
+ 	fossilNodes[i] <- fossilData[i, "svl"]
+ 	nodeN[i] <- Node
+ 	nodelabels(node=Node, pch=21, bg="red", cex=1.2)
+ }
+names(fossilNodes) <- nodeN
+ Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes, CI=TRUE, var=TRUE)
+install.packages("geiger")
+#question 1: Shark
+#question 2: no there are not any branch lengths
+#question 3: in the tips of tree, or "x" (svl); CI95 can compute 95% confidence intervals on ancestral state estimates
+#question 4:
+#question 7:
+#question 8-10:
+
+
+
+
+
+
+
+
+
+
 text.string<-
+
 "(((((((cow, pig) , whale) , (bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) , shark) ;"
 vert.tree<-read.tree(text=text.string)
 plot(vert.tree , edge.width=2)
@@ -166,5 +219,77 @@ names(Lengths) [which(Lengths==min (Lengths))]
 plot(AnolisTree, cex=0.25)
 Labs<-sapply(AnolisTree$edge.length, round, digits=2)
 edgelabels(text=Labs, cex=0.25)
+?plot.phylo
+plotTree(AnolisTree, offset=1, show.tip.label=FALSE)
+#circular_tree(AnolisTree)
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")
+#6,7,8 
+AnolisTree$edge
+EdgesThatAreTips <-which(AnolisTree$edge[, 2] <= Ntip(AnolisTree))
+TipLengths <- AnolisTree$edge.length[EdgesThatAreTips]
+AnolisTree$edge.length
+AnolisShortestTips <-which(TipLengths == min (TipLengths))
+Anolistree_no_short <- drop.tip(tree, AnolisShortestTips[1])
+plot(Anolistree_no_short)
+ltt(AnolisTree)
+abline(0, 1, lwd=2, col='red', lty=2)
 
+
+setwd("~/Desktop/Evolution/Tasks/task_08")
+library("phytools")
+tree <- read.tree("https://jonsmitchell.com/data/anolis.tre")
+plot(tree,type="fan")
+tree$tip.label
+#question 1: 1:82 tips
+data <- read.csv("https://jonsmitchell.com/data/svl.csv", stringsAsFactor=F, row.names=1)
+data
+data[, 1]
+# question 2: 100 demensions; lst of species
+svl <- setNames(data$svl, rownames(data))
+svl
+Ancestors <- fastAnc(tree, svl, vars=TRUE, Cl=TRUE)
+#queston 3:
+#question 4:
+
+par(mar=c(0.1, 0.1, 0.1, 0.1))
+plot(tree, type="fan", lwd=2, show.tip.label=F)
+tiplabels(pch=16, cex=0.25*svl[tree$tip.label])
+nodelabels(pch=16, cex=0.25*Ancestors$ace)
+
+
+setwd("~/Desktop/Evolution/Tasks/task_08")
+library("phytools")
+tree <-read.tree("https://jonsmitchell.com/data/anolis.tre")
+ plot(tree, type="fan")
+ data <- read.csv("https://jonsmitchell.com/data/svl.csv", stringsAsFactors=F, row.names=1)
+ dim(data)
+ class(data)
+ svl <- setNames(data$svl, rownames(data))
+ svl
+ Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)
+ par(mar=c(0.1,0.1,0.1,0.1))
+ plot(tree, type="fan", lwd=2, show.tip.label=F)
+tiplabels(pch=16, cex=0.25*svl[tree$tip.label])
+ # adds the ancestral states 
+ nodelabels(pch=16, cex=0.25*Ancestors$ace)
+ obj <- contMap(tree, svl, plot=F)
+ plot (obj, type="fan", legend= 0.7*max(nodeHeights(tree)), sig=2, fsize=c(0.7, 0.9))
+ fossilData <- data.frame(svl=log(c(25.4, 23.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))
+ fossilNodes <-c()
+ nodeN <-c()
+{
+	for(i in 1:nrow(fossilData))
+	i<- 1 if (i == 1) {
+print(Ancestors)   }
+}
+ plot(tree, cex=0.5)
+ for (i in 1:nrow(fossilData))	{
+ 	Node <- fastMRCA(tree, fossilData [i,"tip1"], fossilData[i,"tip2"])
+ 	fossilNodes[i] <- fossilData[i, "svl"]
+ 	nodeN[i] <- Node
+ 	nodelabels(node=Node, pch=21, bg="red", cex=1.2)
+ }
+ names(fossilNodes) <- nodeN
+Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes, CI=TRUE, var=TRUE)
+install.packages("geiger")
 

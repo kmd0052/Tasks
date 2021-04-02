@@ -1,0 +1,250 @@
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model&lt;- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees &lt;- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy &lt;- read.tree(text=stats$trees[[locus]][n])
+}
+else {
+outPhy <- ape:::c.phylo(outPhy,
+read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+par (mfrow=c(1, 1))
+densityTree(outPhy)
+install.packages("learnPopGen";)
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+ntrees &lt;- length(stats$trees[[locus]])
+ntrees <- length(stats$trees[[locus]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2<- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees <- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy <- read.tree(text=stats$trees[[locus]][n])
+}
+else {
+outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+model3 <- coal_model(10, 50) +
+feat_mutation(par_prior("theta", sample.int(100, 1))) +
+sumstat_nucleotide_div()
+stats <- simulate(model3, nsim = 40)
+mean_pi <- sapply(stats, function(x) mean(x$pi))
+theta<- sapply(stats, function(x) x$pars [["theta"]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+axisPhylo ()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+t1 <- read.tree(text=stats$trees[[1]][1])
+t1<- read.tree(text=stats$trees [[1]][1])
+setwd("~/Desktop/Evolution/Project")
+setwd(''~/Desktop/Evolution/Tasks/Project')
+setwd('~/Desktop/Evolution/Tasks/Project')
+setwd(''~/Desktop/Evolution/Tasks/Project")
+setwd(""~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Task/Project')
+setwd("~/Desktop/Evolution/Task/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Project')
+source ("http://jonsmitchell.com/code/reformatData07.r")
+set(wd)
+source ("http://jonsmitchell.com/code/reformatData07.r")
+source ("http://jonsmithcell.com/code/simFxn.r")
+text.string<-
+"(((((((cow, pig) , whale) , (bat, (lemur, human))) ,(robin, iguana)) , coelacanth) ,(gold_fish, trout)) , shark) ;"
+vert.tree<-read,tree(text=text.string)
+vert. tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+vert.tree<- read.tree(text=text.string)
+v e r t . t r e e<−read . t r e e ( text=text . s t r i n g )
+vert.tree<−read . tree ( text=text . string )
+vert.tree <−read . tree ( text=text . string )
+vert.tree<−read . tree ( text=text . string )
+vert.tree<-read.tree(text=text.string)
+setwd(~/Desktop/Evolution/Tasks/task_07)
+text.string<-
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;"
+vert.tree<-read.tree(text=text.string)
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;" vert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text. string)
+vert.tree<-read . tree(text=text.string)
+vert.tree<- read . tree(text=text.string)
+vert.tree<-read.tree( text=text.string)
+vert.tree<-read.tree (text=text.string)
+text.string<-
+"(((((((cow, pig) ,whale) , (bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) , shark) ;"
+vert.tree<-read.tree(text==.string)
+vert.tree<-read.tree(text==text.string)
+install.packages
+library
+libraryvert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+setwd("~/Desktop/Evolution/Tasks/task_07")
+install.packages("phytools")
+library("phytools")
+tree <-read.tree("https://jonsmitchell.com/data/anolis.tre")
+plot(tree, type="fan")
+data <- read.csv("https://jonsmitchell.com/data/svl.csv", stringsAsFactors=F, row.names=1)
+dim(data)
+class(data)
+svl <- setNames(data$svl, rownames(data))
+svl
+Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)
+par(mar=c(0.1,0.1,0.1,0.1))
+plot(tree, type="fan", lwd=2, show.tip.label=F)
+tiplabels(pch=16, cex=0.25*svl[tree$tip.label])
+# it adds the ancestral states
+nodelabels(pch=16, cex=0.25*Ancestors$ace)
+obj <- contMap(tree, svl, plot=F)
+plot (obj, type="fan", legend= 0.7*max(nodeHeights(tree)), sig=2, fsize=c(0.7, 0.9))
+fossilData <- data.frame(svl=log(c(25.4, 23.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))
+fossilNodes <-c()
+nodeN <-c()
+plot(tree, cex=0.5)
+for (i in 1:nrow(fossilData))	{
+Node <- fastMRCA(tree, fossilData [i,"tip1"], fossilData[i,"tip2"])
+fossilNodes[i] <- fossilData[i, "svl"]
+nodeN[i] <- Node
+nodelabels(node=Node, pch=21, bg="red", cex=1.2)
+}
+names(fossilNodes) <- nodeN
+Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes, CI=TRUE, var=TRUE)
+install.packages("geiger")
