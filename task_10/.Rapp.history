@@ -1,0 +1,250 @@
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+ntrees &lt;- length(stats$trees[[locus]])
+ntrees <- length(stats$trees[[locus]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2<- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees <- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy <- read.tree(text=stats$trees[[locus]][n])
+}
+else {
+outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+model3 <- coal_model(10, 50) +
+feat_mutation(par_prior("theta", sample.int(100, 1))) +
+sumstat_nucleotide_div()
+stats <- simulate(model3, nsim = 40)
+mean_pi <- sapply(stats, function(x) mean(x$pi))
+theta<- sapply(stats, function(x) x$pars [["theta"]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+axisPhylo ()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+t1 <- read.tree(text=stats$trees[[1]][1])
+t1<- read.tree(text=stats$trees [[1]][1])
+setwd("~/Desktop/Evolution/Project")
+setwd(''~/Desktop/Evolution/Tasks/Project')
+setwd('~/Desktop/Evolution/Tasks/Project')
+setwd(''~/Desktop/Evolution/Tasks/Project")
+setwd(""~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Task/Project')
+setwd("~/Desktop/Evolution/Task/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Project')
+source ("http://jonsmitchell.com/code/reformatData07.r")
+set(wd)
+source ("http://jonsmitchell.com/code/reformatData07.r")
+source ("http://jonsmithcell.com/code/simFxn.r")
+text.string<-
+"(((((((cow, pig) , whale) , (bat, (lemur, human))) ,(robin, iguana)) , coelacanth) ,(gold_fish, trout)) , shark) ;"
+vert.tree<-read,tree(text=text.string)
+vert. tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+vert.tree<- read.tree(text=text.string)
+v e r t . t r e e<−read . t r e e ( text=text . s t r i n g )
+vert.tree<−read . tree ( text=text . string )
+vert.tree <−read . tree ( text=text . string )
+vert.tree<−read . tree ( text=text . string )
+vert.tree<-read.tree(text=text.string)
+setwd(~/Desktop/Evolution/Tasks/task_07)
+text.string<-
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;"
+vert.tree<-read.tree(text=text.string)
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;" vert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text. string)
+vert.tree<-read . tree(text=text.string)
+vert.tree<- read . tree(text=text.string)
+vert.tree<-read.tree( text=text.string)
+vert.tree<-read.tree (text=text.string)
+text.string<-
+"(((((((cow, pig) ,whale) , (bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) , shark) ;"
+vert.tree<-read.tree(text==.string)
+vert.tree<-read.tree(text==text.string)
+install.packages
+library
+libraryvert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+setwd("~/Desktop/Evolution/Tasks/task_10")
+install.packages('diversitree')
+library('diversitree')
+transition_0to1 <- 0.1
+transition_1to0 <- 0.1
+speciation_0 <-0.2
+extinction_0 <- 0.15
+speciation_1 <- 0.4
+extinction_1 <- 0.1
+maxN <-1e3
+maxT <- 50
+Pars <- c(speciation_0, speciation_1, extinction_0, extinction_1, transition_0to1, transition_1to0)
+simTree <- tree.bisse(Pars, max.taxa = maxN, max.t = maxT)
+str(simTree)
+#?tree.bisse()
+stateTable <- table(simTree$tip.state)
+stateTable / sum(stateTable)
+Frequencies <- c('State 0', 'State 1')
+Colors <- c('pink', 'blue')
+Data <- matrix(c(0.47, 0.48, 0.67, 0.758, 0.631, 0.23, 0.52, 0.5, 0.54, 0.77, 0.77, 0.679), nrow = 3, ncol = 7, byrow=TRUE)
+Data
+Difference <- c(0.15, 0.1, 0.05, 0.03, 0.02, 0.01)
+Freq1 <- c(0.52, 0.5, 0.54, 0.77, 0.77, 0.679)
+Freq0 <- c(0.47, 0.48, 0.67, 0.758, 0.631, 0.23)
+pdf('Question1.pdf', height =6, width=6)
+barplot(Data, names.arg=Difference,
+main='Changes in Frequency of States based on Variation in R Values'
+xlab='Difference in Diversification Rate'
+main = 'Changes in Frequency of States based on Variation in R Values'
+xlab = 'Difference in Diversification Rate'
+ylab = 'Frequency'
+beside=TRUE,
+beside=TRUE
+col=c('pink', 'blue')
+)
+legend('topright', Frequencies, fill = Colors)
+legend('top', Frequencies, fill = 'pink', 'blue')
+dev.off()
+Frequencies <- c('State 0', 'State 1')
+Colors <- c('red', 'orange')
+Data <- matrix(c(0.93, 0.9, 0.86, 0.85, 0.77, 0.9, 0.947, 0.932, 0.969, 0.944, 0.945, 0.988, 0.934, 0.933, 0.969, 0.989, 0.973, 0.26, 0.2, 0.10, 0.13, 0.27, 0.067, 0.078, 0.081, 0.031, 0.055, 0.045, 0.072, 0.028, 0.039, 0.012, 0.016, 0.022), nrow = 2, ncol = 17, byrow=TRUE)
+Data
+Difference <- c(0.05, 0.05, 0, 0, 0, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.45, 0.45, 0.45)
+pdf('Question2.pdf', height = 8, width = 8)
+barplot(Data, names.arg=Difference,
+main='How Close to Zero State 1 Gets When Transition Rate is Nonzero'
+xlab='Difference in Diversification Rate'
+main = 'How Close to Zero State 1 Gets When Transition Rate is Nonzero'
+xlab = 'Difference in Diversification Rate'
+ylab = 'Frequencies'
+beside=TRUE
+col=c('red', 'orange')
+legend('topright', Frequencies, fill = 'red', 'orange')
+dev.off()
+Data <- read.csv('~/Desktop/Evolution/Tasks/task_10 question3'
+stringsAsFactors=F)
+Data <- read.csv('~/Desktop/Evolution/Tasks/task_10 question3', stringsAsFactors=F)
+Data <- read.csv("~/Desktop/Evolution/Tasks/task_10 question3", stringsAsFactors=F)
+head(Data)
+Freq1_Trial1 <- Data[,2]
+Freq1_Trial2 <- Data[,5]
+Freq1_Trial3 <- Data[,8]
+Variance1 <- var(Freq1_Trial1)
+Variance2 <- var(Freq1_Trial2)
+Variance3 <- var(Freq1_Trial3)
+Variance1
+Variance2
+Variance3
+VarianceMatrix <- c(Variance1, Variance2, Variance3)
+VarianceMatrix
+Trial <- c(1, 2, 3)
+pdf('Question3.pdf', height=8, width=8)
+barplot(VarianceMatrix, names.arg=Trial,
+main='Variance of Frequency 1 in Each Trial',
+ylim= c(0, 0.5),
+xlab='Trial Number',
+ylab='Variance in Frequencies',
+col='green')
+dev.off()
+head(Data)
+Freq_0 <- Data[,2]
+Freq_0
+NDR_0 <- Data[,1]
+pdf('OwnTrend1.pdf', height=8, width=8)
+plot(NDR_0, Freq_0, xlab='Net Diversification Rate of State 0', ylab='Frequency of State 0', main='How Net Diversification Rate Influences Frequency')
+plot(NDR_0, Freq_0, xlab='Net Diversification Rate of State 0', ylab='Frequency of State 0', main='How Net Diversification Rate Influences Frequency')
+abline(lm(Freq_0~NDR_0), col='blue', lty='dashed')
+dev.off()
+Freq_1 <- Data[,7]
+NDR_1 <- Data[,5]
+pdf('OwnTrend2.pdf', height=8, width=8)
+plot(NDR_1, Freq_1, xlab='Net Diversification Rate of State 1', ylab='Frequency of State 1', main='How Net Diversification Rate Influences Frequency')
+abline(lm(Freq_1~NDR_1), col='blue', lty='dashed')
+dev.off()
