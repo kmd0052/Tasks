@@ -87,7 +87,7 @@ Freq0 <- c(0.47, 0.48, 0.67, 0.758, 0.631, 0.23)
 
 pdf('Question1.pdf', height =6, width=6)
 
-barplot(Data, names.arg=Difference, main = 'Changes in Frequency of States based on Variation in R Values', xlab = 'Difference in Diversification Rate', ylab = 'Frequency', col=c('pink', 'blue'))
+barplot(Data, main = 'Changes in Frequency of States based on Variation in R Values', xlab = 'Difference in Diversification Rate', ylab = 'Frequency', col=c('pink', 'blue'))
 
 
 Frequencies <- c('State 0', 'State 1')
@@ -102,7 +102,7 @@ Difference <- c(0.05, 0.05, 0, 0, 0, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3
 
 pdf('Question2.pdf', height = 8, width = 8)
 
-barplot(Data, names.arg=Difference, main = 'How Close to Zero State 1 Gets When Transition Rate is Nonzero', xlab = 'Difference in Diversification Rate', ylab = 'Frequencies', col=c('red', 'orange'))
+barplot(Data, main = 'How Close to Zero State 1 Gets When Transition Rate is Nonzero', xlab = 'Difference in Diversification Rate', ylab = 'Frequencies', col=c('red', 'orange'))
 
 
 
@@ -136,7 +136,7 @@ Trial <- c(1, 2, 3)
 
 pdf('Question3.pdf', height=8, width=8)
 
-barplot(VarianceMatrix, names.arg=Trial, main='Variance of Frequency 1 in Each Trial', ylim= c(0, 0.5), xlab='Trial Number', ylab='Variance in Frequencies', col='green')
+barplot(VarianceMatrix, main='Variance of Frequency 1 in Each Trial', ylim= c(0, 0.5), xlab='Trial Number', ylab='Variance in Frequencies', col='green')
 
 dev.off()
 head(Data)
@@ -169,3 +169,29 @@ abline(lm(Freq_1~NDR_1), col='blue', lty='dashed')
 
 dev.off()
 
+setwd("~/Desktop/Evolution/Tasks/Projects")
+
+karell <- read.csv("~/Desktop/Evolution/Tasks/karell_data.csv")
+
+par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
+plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
+
+siskin <- read.csv("siskin.csv")
+karell_data <- read.csv ("~/Desktop/Evolution/Tasks/karell_data.csv")
+head(siskin)
+unique(siskin$IND) # how many different individuals there are
+nrow(siskin) # how many observations
+
+
+boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex (male and female) ", ylab="parasite intensity (% infected red blood cells)")
+boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class (years)", ylab="telomere length (T/S ratio)")
+
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length.,abline(lm(parasitemia-telomere length(T/S ration)), boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+
+plot(siskin$TL.Telomere.length., siskin$)
+
+plot()
+plot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
+
+library(ids)
+FitRegression <- lm (body mass ~ telomere length)

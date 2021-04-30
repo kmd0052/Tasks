@@ -136,7 +136,7 @@ Trial <- c(1, 2, 3)
 
 pdf('Question3.pdf', height=8, width=8)
 
-barplot(VarianceMatrix, n, main='Variance of Frequency 1 in Each Trial', ylim= c(0, 0.5), xlab='Trial Number', ylab='Variance in Frequencies', col='green')
+barplot(VarianceMatrix, main='Variance of Frequency 1 in Each Trial', ylim= c(0, 0.5), xlab='Trial Number', ylab='Variance in Frequencies', col='green')
 
 dev.off()
 head(Data)
@@ -169,3 +169,75 @@ abline(lm(Freq_1~NDR_1), col='blue', lty='dashed')
 
 dev.off()
 
+setwd("~/Desktop/Evolution/Tasks/Projects")
+
+karell <- read.csv("~/Desktop/Evolution/Tasks/karell_data.csv")
+
+par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
+plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
+
+siskin <- read.csv("siskin.csv")
+karell_data <- read.csv ("~/Desktop/Evolution/Tasks/karell_data.csv")
+head(siskin)
+unique(siskin$IND) # how many different individuals there are
+nrow(siskin) # how many observations
+
+
+boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex (male and female) ", ylab="parasite intensity (% infected red blood cells)")
+boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class (years)", ylab="telomere length (T/S ratio)")
+
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length.,abline(lm(parasitemia-telomere length(T/S ration)), boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+
+plot(siskin$TL.Telomere.length., siskin$)
+
+plot()
+plot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
+
+library(ids)
+FitRegression <- lm (body mass ~ telomere length)
+
+setwd("~/Desktop/Evolution/Tasks/task_11")
+
+x<- rnorm(100, mean=5, sd=2)
+
+x
+
+y<-(x*5)+2+(rnorm(100, 0:0.1))
+
+y
+
+plot(x, y)
+
+abline(lm(y~x), col='red')
+
+coef(lm(y~x))
+
+z<- c()
+
+x<- rnorm(100, mean=5, sd=2)
+
+for (i in 1:100) {
+
+	z[i]<- runif(1)
+
+	y<- (x*z[i])+2+(rnorm(100,0:0.1))
+
+	l<- coef(lm(z[1:100]~y))
+
+}
+
+l
+
+plot(z[1:100], y)
+
+abline(lm(y~z[1:100]))
+
+plot(c(z, -0.029))
+
+install.packages('meme')
+
+library('meme')
+
+K<- 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.sunset.com%2Fwp-content%2Fuploads%2FPLANT-MEME-BEAN-0120-1280x720.jpg&imgrefurl=https%3A%2F%2Fwww.sunset.com%2Fhome-garden%2Fplants%2Fplant-memes-instagram&tbnid=wJHde2f0jx70AM&vet=12ahUKEwjztYqflqXwAhVBbK0KHSzRCv4QMygKegUIARCkAQ..i&docid=Ed-N89qFDZdKPM&w=1280&h=720&q=memes&ved=2ahUKEwjztYqflqXwAhVBbK0KHSzRCv4QMygKegUIARCkAQ'
+
+Kylie_meme<- meme(K, lower= "One does not simply grow plants if one has not botany", color='blue', size='1.5')

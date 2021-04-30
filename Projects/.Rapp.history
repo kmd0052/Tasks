@@ -1,257 +1,250 @@
-my_vector
-class(my_vector)
-my_matrix <- my_vector
-?matrix
-my_matrix2 <- matrix (1:20, nrow=4, ncol=5)
-identical(my_matrix, my_matrix2)
-patients <- c("Bill", "Gina", "Kelly", "Sean")
-cbind(patients, my_matrix)
-my_data <- data.frame(patients, my_matrix)
-my_data
-class(my_data)
-cnames <- c("patient", "age", "weight", "bp", "rating", "test")
-colnames(my_data) <- cnames
-my_data
-TRUE == TRUE
-(FALSE == TRUE) == FALSE
-6 == 7
-6 < 7
-10 <= 10
-5 != 7
-'!5 == 7'
-!5 == 7
-FALSE & FALSE
-"TRUE & c(TRUE, FALSE, FALSE, FALSE)"
-TRUE & c(TRUE, FALSE, FALSE, FALSE)
-TRUE & c(TRUE, FALSE, FALSE)
-TRUE && c(TRUE, TRUE, TRUE) & c(TRUE, FALSE, FALSE)
-TRUE && c(TRUE, FALSE, FALSE)
-TRUE | c(TRUE, FALSE, FALSE)
-TRUE || c(TRUE, FALSE, FALSE)
-5 > 8 || 6 != 8 && 4 > 3.9
-isTRUE(6 > 4)
-identical('twins', 'twins')
-xor(5 == 6, !FALSE)
-ints <- sample(10)
-ints
-ints > 5
-which(ints > 7)
-any(ints < 0)
-all(ints > 0)
-Sys.Date()
-mean(c(2, 4, 5))
-test_func1()
-?
-library(swirl)#
-#
-swirl()
-Sys.Date()
-mean(c(2, 5))
-mean(c(2, 4, 5))
-submit()
-boring_function('My first function!')
-boring_function
-submit()
-my_mean(c(4, 5, 10))
-submit()
-remainder(5)
-remainder(11, 5)
-remainder(divisor = 11, num =5)
-remiander(4, div = 2)
-remainder(4, div = 2)
-args(remainder)
-submit()
-evaluate(sd, c(1.4, 3.6. 7.9, 8.8))
-evaluate(c(1.4, 3.6. 7.9, 8.8))
-evaluate(sd, c(1.4, 3.6, 7.9, 8.8))
-evaluate(function(x){x+1}, 6)
-evaluate(function(x){x+1}, c(8, 4, 0))
-evaluate(function(x){x-1}, c(8, 4, 0))
-evaluate(function(x){x[length(x)], c(8, 4, 0))
-evaluate(function(x){length(x)}, c(8, 4, 0))
-evaluate(function(x){x[length(x)]}, c(8, 4, 0))
-evaluate(function(x){x[1]}, c(8, 4, 0))
-evaluate(function(x){x[-1]}, c(8, 4, 0))
-?paste
-paste("Programming, "is", "fun!")
-paste("Programming", "is", "fun!")
-submit()
-"START Hello STOP"
-telegram(c("Hello", "world", ",", "how", "are", "we", "today", "?"))
-submit()
-mad_libs(place = "London", adjective = "beautiful", noun "dog")
-mad_libs(place = "London", adjective = "beautiful", noun = "dog")
-submit()
-"I" %p% "love" %p% "R!"
-data(cars)
-?(cars)
-help(cars)
-head(cars)
-plot(cars)
-help(plot)
-plot(x = cars$speed, y = cars$dist)
-plot(x = cars$dist, y = cars$speed)
-plot(x = cars$speed, y = cars$dist, xlab = "Speed")
-plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")
-plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
-plot(cars, main = "My Plot")
-plot(cars, sub = "My Plot Subtitle")
-plot(cars, col = 2)
-plot(cars, xlim = c(10, 15))
-plot(cars, pch = 2)
-data(mtcars)
-help(boxplot)
-boxplot(formula = mpg ~ cyl, data = mtcars)
-hist(mtcars$mpg)
-write . csv ( Data, ‘rawdata . csv ‘ , quote=F )
-setwd("~/Desktop/Evolution/Tasks/Projects")
-karell <- read.csv("karell_data.csv")
-head(karell)
-plot(karell$Parasite.intensity, karell$TL)
-par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)#
-plot(karell$Parasite.intensity, karell$TL)
-par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)#
-plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (units?)", ylab="telomere length (units?)")
-siskin <- read.csv("siskin.csv")
-head(siskin)
-unique(siskin$IND)
-length(unique(siskin$IND))
-nrow(siskin)
-head(karell)
-boxplot(karell$Parasite.intensity~karell$Sex)
-head(siskin)
-boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex", ylab="parasite intensity")#
-#
-boxplot(siskin$X..parasitemia~siskin$sex, boxwex=0.25, xlab='sex', ylab="parasitemia")
-head(karell)
-boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex", ylab="parasite intensity")#
-boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class", ylab="telomere length")
-boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex", ylab="parasite intensity")
-boxplot(siskin$X..parasitemia~siskin$sex, boxwex=0.25, xlab='sex', ylab="parasitemia")
-plot(siskin$TL.Telomere.length., siskin$)
-plot()
-plot(siskin$TL.Telomere.length., siskin$)
-plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (units?)", ylab="telomere length (units?)")
-karell <- read.csv("karell_data.csv")
-par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
-plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (units?)", ylab="telomere length (units?)")
-plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
-boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex (male) ", ylab="parasite intensity (% infected red blood cells)")
-boxplot(karell$Parasite.intensity~karell$Sex, boxwex=0.25, xlab="sex (male and female) ", ylab="parasite intensity (% infected red blood cells)")
-boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class", ylab="telomere length (T/S ratio)")
-boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class (years)", ylab="telomere length (T/S ratio)")
-boxplot(siskin$X..parasitemia~siskin$sex, boxwex=0.25, xlab="sex (male and female)", ylab="parasitemia")
-setwd("~/Desktop/Evolution/Tasks/task_09")
-library('phytools')
-trees <- list()
-births <- c()
-Fractions <- c()
-for(i in 1:100) {
-births[i] <- runif(1)
-Fractions[i] <- runif(1)
-trees[[i]] <- pbtree(b = births[i], d = (births[i] * Fractions[i]), n = 100, nsim = 1)
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees &lt;- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy &lt;- read.tree(text=stats$trees[[locus]][n])
 }
-trees
-trees[[i]]
-plot(trees[[i]])
-install.packages('geiger')
-library('geiger')
-#4
-install.packages('TreeTools')
-library('TreeTools')
-tips <- sapply(trees, NTip)
-logtips <- log(tips)
-diversification <- sapply(trees, bd.ms)
-plot(diversification, logtips, xlab='net diversification', ylab='log of total number of tips')
-abline(lm(diversification~logtips), col='red')
-#It shows a positive correlation between diversification and number of tips
-cor(diversification, logtips)
-#positive correlation
-#QUESTION 5
-speciation <- sapply(trees, bd.km)
-#for (t in 1:length(trees))	{
-i <- 1
-numtips <- c()
-avgBL <- c()
-for ( i in 1:length(trees))	{
-# choose tree
-y <- trees[[i]]
-# find the number of tips
-numtips[i] <- Ntip(y)
-# find the average branch length
-avgBL[i] <- mean(y$edge.length)
+else {
+outPhy <- ape:::c.phylo(outPhy,
+read.tree(text=stats$trees[[locus]][n]))
 }
-plot(speciation, avgBL, xlab='speciation rate', ylab='average branch length')
-#branch length is oppositely proportional to speciation rate
-#6
-cor(speciation, avgBL)
-#correlation = -0.25
-#Question 7
-which.max(tips)
-bigTree <- trees[[66]]
-plot(bigTree)
-rates <- c()
-traits <- list()
-for (i in 1:100) {
-rates[i] <- runif(1)
-traits[[i]] <- fastBM(tree = bigTree, sig2 = rates[i])
+par(mfrow=c(1,1))
+densityTree(outPhy)
+par (mfrow=c(1, 1))
+densityTree(outPhy)
+install.packages("learnPopGen";)
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats <- simulate(model, nsim = 1)
+Diversity <- stats$pi
+Nloci <- length(stats$trees)
+t1 <- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2 <- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+ntrees &lt;- length(stats$trees[[locus]])
+ntrees <- length(stats$trees[[locus]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+Age1 <- max(nodeHeights(t1))
+t2<- read.tree(text=stats$trees[[2]][1])
+plot(t2)
+axisPhylo()
+par(mfrow=c(1,2))
+plot(t1)
+axisPhylo()
+plot(t2)
+axisPhylo()
+compare.chronograms(t1, t2)
+t1_1 <- read.tree(text=stats$trees [[1]][1])
+t1_2 <- read.tree(text=stats$trees [[1]][2])
+compare.chronograms(t1_1, t1_2)
+for (locus in 1:Nloci) {
+ntrees <- length(stats$trees[[locus]])
+for (n in 1:ntrees) {
+if (locus == 1 && n == 1) {
+outPhy <- read.tree(text=stats$trees[[locus]][n])
 }
-#? 8
-avgtrait <- sapply(traits, mean)
-avgtrait
-avgrate <- sapply(rates, mean)
-avgrate
-correlation <- cor(avgtrait, avgrate)
-print(correlation)
-plot(avgrate, avgtrait)
-abline(lm(avgrate~avgtrait), col='purple')
-#0.09 correlation
-#9
-vartraits <- sapply(traits, var)
-cor(vartraits, rates)
-# positive correlation between variance of traits and rates.
-#? 10
-trait1 <- traits[1]
-trait1
-trait2 <- traits[2]
-trait2
-traitmat <- cbind(traits[[1]], traits[[2]])
-traitmat
-var(traitmat)
-cor(traitmat[,1], traitmat[,2])
-#Correlation is about 0 and this tells us that it is not significant
-plot(traitmat[,1], traitmat[,2])
-abline(lm(traitmat[,1]~traitmat[,2]), col='pink')
-setwd("source('~/Desktop/Evolution/Projects/project)")
-setwd("~/Desktop/Evolution/Projects/project")
-setwd("~/Desktop/Evolution/Projects")
-siskin <- read.csc("siskin.csv")
-siskin <- read.csv("siskin.csv")
-oxplot(siskin$X..parasite.intensity~siskin$dpi, boxwex=0.25, xlab="parasite intensity (% infected red blood cells)", ylab="dpi")
-boxplot(siskin$X..parasite.intensity~siskin$dpi, boxwex=0.25, xlab="parasite intensity (% infected red blood cells)", ylab="dpi")
-boxplot(siskin$X..parasitemia~siskin$dpi, boxwex=0.25, xlab="parasitemia", ylab="dpi")
-boxplot(siskin$X..parasitemia~siskin$dayspostinfection, boxwex=0.25, xlab="parasitemia", ylab="dpi")
-setwd("~/Desktop/Evolution/Tasks/Projects")
-setwd("~/Desktop/Evolution/Projects)")
-setwd("~/Desktop/Evolution/Tasks/Projects")
-karell <- read.csv("karell_data.csv")
-par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
-plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
-siskin <- read.csv("siskin.csv")
-head(siskin)
-boxplot(siskin$BM..Body.mass~siskin$TL. Telomere.length, boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
-boxplot(siskin$BM..Body.mass.~siskin$TL. Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
-plot(siskin$TL.Telomere.length., siskin$)
-siskin <- read.csv("siskin.csv")
-boxplot(siskin$X..parasitemia~siskin$sex, boxwex=0.25, xlab="sex (male and female)", ylab="parasitemia")
-boxplot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
-boxplot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="Telomere length (T/S ratio)", ylab="parasitemia")
-boxplot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
-plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
-plot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
-plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
-plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
-library(ids)
+else {
+outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
+}
+par(mfrow=c(1,1))
+densityTree(outPhy)
+model3 <- coal_model(10, 50) +
+feat_mutation(par_prior("theta", sample.int(100, 1))) +
+sumstat_nucleotide_div()
+stats <- simulate(model3, nsim = 40)
+mean_pi <- sapply(stats, function(x) mean(x$pi))
+theta<- sapply(stats, function(x) x$pars [["theta"]])
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+library("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+plot(t1)
+axisPhylo()
+axisPhylo ()
+install.packages("learnPopGen")
+library("learnPopGen")
+install.packages("coala")
+library("coala")
+install.packages("phytools")
+model<- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
+feat_mutation(10) +
+feat_recombination(10) +
+sumstat_trees() +
+sumstat_nucleotide_div()
+stats<- simulate(model, nsim = 1)
+Diversity<- stats$pi
+Nloci<- length(stats$trees)
+t1<- read.tree(text=stats$trees[[1]][1])
+t1 <- read.tree(text=stats$trees[[1]][1])
+t1<- read.tree(text=stats$trees [[1]][1])
+setwd("~/Desktop/Evolution/Project")
+setwd(''~/Desktop/Evolution/Tasks/Project')
+setwd('~/Desktop/Evolution/Tasks/Project')
+setwd(''~/Desktop/Evolution/Tasks/Project")
+setwd(""~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Tasks/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Task/Project')
+setwd("~/Desktop/Evolution/Task/Project")
+setwd("~/Desktop/Evolution/Project")
+setwd('~/Desktop/Evolution/Project')
+source ("http://jonsmitchell.com/code/reformatData07.r")
+set(wd)
+source ("http://jonsmitchell.com/code/reformatData07.r")
+source ("http://jonsmithcell.com/code/simFxn.r")
+text.string<-
+"(((((((cow, pig) , whale) , (bat, (lemur, human))) ,(robin, iguana)) , coelacanth) ,(gold_fish, trout)) , shark) ;"
+vert.tree<-read,tree(text=text.string)
+vert. tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+vert.tree<- read.tree(text=text.string)
+v e r t . t r e e<−read . t r e e ( text=text . s t r i n g )
+vert.tree<−read . tree ( text=text . string )
+vert.tree <−read . tree ( text=text . string )
+vert.tree<−read . tree ( text=text . string )
+vert.tree<-read.tree(text=text.string)
+setwd(~/Desktop/Evolution/Tasks/task_07)
+text.string<-
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;"
+vert.tree<-read.tree(text=text.string)
+"(((((((cow, pig) , whale) ,(bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) ,shark) ;" vert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text. string)
+vert.tree<-read . tree(text=text.string)
+vert.tree<- read . tree(text=text.string)
+vert.tree<-read.tree( text=text.string)
+vert.tree<-read.tree (text=text.string)
+text.string<-
+"(((((((cow, pig) ,whale) , (bat, (lemur, human))) , (robin, iguana)) , coelacanth) , (gold_fish, trout)) , shark) ;"
+vert.tree<-read.tree(text==.string)
+vert.tree<-read.tree(text==text.string)
 install.packages
-library(ids)
-install.packages(ids)
+library
+libraryvert.tree<-read.tree(text=text.string)
+vert.tree<-read.tree(text=text.string)
+setwd("~/Desktop/Evolution/Tasks/Projects")
+karell <- read.csv("karell_data.csv")
+par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
+plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
+siskin <- read.csv("siskin.csv")
+head(siskin)
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+FitRegression <-lm(y-x)
+setwd("~/Desktop/Evolution/Tasks/Projects")
+karell <- read.csv("karell_data.csv")
+par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
+karell <- read.csv("~/Desktop/Evolution/Tasks/karell_data.csv")
+par(las=1, mgp=c(2.5, 0.25, 0), tck=-0.01)
+plot(karell$Parasite.intensity, karell$TL, xlab="parasite intensity (% infected red blood cells)", ylab="telomere length (T/S ratio)")
+siskin <- read.csv("siskin.csv")
+head(siskin)
+boxplot(karell$TL ~ karell$Age.class, boxwex=0.25, xlab="age class (years)", ylab="telomere length (T/S ratio)")
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+FitRegression <-lm(y-x)
+FitRegression <-lm(y-x)
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length., boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+abline(FitRegression)
+abline(FitRegression, col="red", lty=2, lwd=2)
+FitRegression
+lm(parasitemia ~ Telomere length)
+abline(lm(parasitemia ~ Telomere length))
+abline(lm(parasitemia~Telomere length))
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length.,abline(lm(x-y)), boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length.,abline(lm(parasitemia-telomere length)), boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+plot(siskin$X..parasitemia~siskin$TL.Telomere.length.,abline(lm(parasitemia-telomere length(T/S ration)), boxwex=0.25, xlab="parasitemia", ylab="Telomere length (T/S ratio)")
+plot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
+plot(siskin$BM..Body.mass.~siskin$TL.Telomere.length., boxwex=0.25, xlab="Body mass", ylab="Telomere length (T/S ratio)")
+karell_data <- read.csv ("~/Desktop/Evolution/Tasks/karell_data.csv")
+karell <- read.csv("~/Desktop/Evolution/Tasks/karell_data.csv")
+FitRegression <- lm(y~x)
+FitRegression <- lm(y ~ x)
+FitRegression <- lm(body mass~ telomere length)
+FitRegression <- lm(body mass ~ telomere length)
+FitRegression <- lm( body mass ~ telomere length)
+FitRegression <- lm ( body mass ~ telomere length)
+FitRegression <- lm (body mass ~ telomere length)
